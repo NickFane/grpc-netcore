@@ -1,0 +1,27 @@
+﻿syntax = "proto3";
+
+// An optional csharp namespace to make it easier to reference our service.
+option csharp_namespace = "ShopperProfileServer";
+
+package profile;
+
+// The shopper profile service we'll call to get a shopper's details
+service ShopperProfile {
+  rpc GetShopperProfile (ShopperProfileRequest) returns (ShopperProfileResponse);
+}
+
+// The request message containing the shopper's ID
+message ShopperProfileRequest {
+  string shopperId = 1;
+}
+
+// The response message containing the shopper's details
+message ShopperProfileResponse {
+  ShopperDetails shopperDetails = 1;
+}
+
+// The shopper details object
+message ShopperDetails {
+  string shopperId = 1;
+  string name = 2;
+}

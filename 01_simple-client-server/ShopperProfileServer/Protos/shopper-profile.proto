@@ -1,0 +1,24 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "ShopperProfileServer";
+
+package profile;
+
+service ShopperProfile {
+  rpc GetShopperProfile (ShopperProfileRequest) returns (ShopperProfileResponse);
+}
+
+// The request message containing the user's name.
+message ShopperProfileRequest {
+  string shopperId = 1;
+}
+
+// The response message containing the greetings.
+message ShopperProfileResponse {
+  ShopperDetails shopperDetails = 1;
+}
+
+message ShopperDetails {
+  string shopperId = 1;
+  string name = 2;
+}
